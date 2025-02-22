@@ -93,15 +93,6 @@ export const updatePostById = async (req, res) => {
                 message: "Publicación no encontrada"
             });
         }
-               
-        if (post.user.toString() !== req.usuario._id.toString()) {
-            console.log("Los IDs NO coinciden:", post.user.toString(), req.usuario._id.toString());
-            return res.status(403).json({
-                success: false,
-                message: "No tienes permisos para editar esta publicación"
-            });
-        }
-
         
         const updatedPost = await Post.findByIdAndUpdate(uid, data, { new: true });
 
@@ -129,13 +120,6 @@ export const deletePostById = async (req, res) => {
             return res.status(404).json({
                 success: false,
                 message: "Publicación no encontrada"
-            });
-        }
-
-        if (post.user.toString() !== req.usuario._id.toString()) {
-            return res.status(403).json({
-                success: false,
-                message: "No tienes permisos para eliminar esta publicación"
             });
         }
 

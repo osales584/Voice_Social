@@ -50,7 +50,7 @@ export const postBelongsToUser = async (uid = "", userId = "") => {
         throw new Error(`La publicación con el ID '${uid}' no existe`);
     }
 
-    if (post.user.toString() !== userId) {
-        throw new Error("No tienes permisos para modificar esta publicación");
+    if (post.user.toString() !== String(userId)) {
+        throw new Error("No tienes permisos para modificar este comentario");
     }
 };
