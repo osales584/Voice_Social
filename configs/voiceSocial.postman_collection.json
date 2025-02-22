@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "e0d98e23-da91-4eb3-94f3-799bcbf7284b",
+		"name": "voiceSocial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37645671"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Oliver\",\r\n    \"surname\": \"Sales\",\r\n    \"email\": \"sales@gmail.com\",\r\n    \"password\": \"Oliver123*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"superadmin@voicesocial.com\",\r\n    \"password\": \"Password123*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Listar perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4NTA2NGY0MjVjNDQzMTZiMTVkZDYiLCJpYXQiOjE3NDAxNTkzNTIsImV4cCI6MTc0MDE3Mzc1Mn0.fk-Eq0xmTk9sp0ExhOfaiXCi5ti8aV_lwszikTt7kSc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/user/"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar contraseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAwNTk1NzIsImV4cCI6MTc0MDA3Mzk3Mn0.PPoEGAogpq_84wAhTIu3HHVg1TJZ2OmAeeiZm1VCcLE"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"Oliver123*\",\r\n    \"newPassword\": \"Sales1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/user/updatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAwNTk2NDQsImV4cCI6MTc0MDA3NDA0NH0.faJfWc966EdZ7u-_t_YEk2i6NnDXgXX60vAQQK8brfM"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"surname\": \"Torres\",\r\n    \"email\": \"juancho@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/user/updateUser"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Agregar categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzJmNDU2ZjI2MjE4MGZmY2ZlNWEiLCJpYXQiOjE3NDAxMTkxNjksImV4cCI6MTc0MDEzMzU2OX0.vB_GClG0D0fgwcCyHuhnXJLauqRq2eCdEzCX0v-WL5M"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Educación\",\r\n    \"description\": \"Recursos y temas educativos para el aprendizaje.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/category/createCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzJmNDU2ZjI2MjE4MGZmY2ZlNWEiLCJpYXQiOjE3NDAxMTk5NzQsImV4cCI6MTc0MDEzNDM3NH0.iK9OxA4K7LQ-doD5eW8myPyO70gqvZOl6VI2PX9NSAU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/category/"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar categoria por nombre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzJmNDU2ZjI2MjE4MGZmY2ZlNWEiLCJpYXQiOjE3NDAxMTk5NzQsImV4cCI6MTc0MDEzNDM3NH0.iK9OxA4K7LQ-doD5eW8myPyO70gqvZOl6VI2PX9NSAU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/category/findCategory/Salud"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar categoria por nombre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzJmNDU2ZjI2MjE4MGZmY2ZlNWEiLCJpYXQiOjE3NDAxMTk5NzQsImV4cCI6MTc0MDEzNDM3NH0.iK9OxA4K7LQ-doD5eW8myPyO70gqvZOl6VI2PX9NSAU"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Salud\",\r\n    \"description\": \"Consejos y noticias sobre bienestar y vida saludable.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/category//updateCategory/Entretenimiento"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoria por nombre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/category/deleteCategory/Salud"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Agregar publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4NTA2NGY0MjVjNDQzMTZiMTVkZDYiLCJpYXQiOjE3NDAxMzM1MjUsImV4cCI6MTc0MDE0NzkyNX0.3cJRrhN2PHLvATSCVXOQMp82QUwdqC_hoE4q2tcYmac"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mineduc 2025\",\r\n    \"category\": \"67b81ecd4dd5337eadb0da39\",\r\n    \"content\": \"Los colegios deben tatata.\",\r\n    \"user\": \"67b85064f425c44316b15dd6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/post/createPost"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar publicaciones",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4NTA2NGY0MjVjNDQzMTZiMTVkZDYiLCJpYXQiOjE3NDAxODM5NzUsImV4cCI6MTc0MDE5ODM3NX0.0d0v2Q6C-9kqYY4sqb-GQJsuryf7JPwJE2INh67nvjI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/post/"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar una publicación por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4NTA2NGY0MjVjNDQzMTZiMTVkZDYiLCJpYXQiOjE3NDAxMzM1MjUsImV4cCI6MTc0MDE0NzkyNX0.3cJRrhN2PHLvATSCVXOQMp82QUwdqC_hoE4q2tcYmac"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/post/findPost/67b8555d11a14b5e4ab8257e"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAxODY3MjIsImV4cCI6MTc0MDIwMTEyMn0.gV-w5I7xcwKWofQpSdxeebdtBTqcG9MEl_SXreLKJRY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Deportes 2026\",\r\n    \"content\": \"Los colegios deben hacer torneos de campeonato\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/post/updatePost/67b850b8f425c44316b15de1"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4NTA2NGY0MjVjNDQzMTZiMTVkZDYiLCJpYXQiOjE3NDAxODQ5MDcsImV4cCI6MTc0MDE5OTMwN30.gxVyHlnF-f6HWKcQreZmYu90ErXa5eFTglp9Wxwpu7g"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/post/deletePost/67b85033f425c44316b15dce"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Agregar Comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAxNzM1MjAsImV4cCI6MTc0MDE4NzkyMH0.bPBFBkTig3Tcp3rQ5XbHZ35zGnvmqU0owGA_mmJ-MbM"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Este es un comentario no es de prueba.\",\r\n    \"user\": \"67b85064f425c44316b15dd6\", \r\n    \"post\": \"67b84eedf09c16d9835b3b91\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/comment/createComment"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar comentarios de una publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAxNzM1MjAsImV4cCI6MTc0MDE4NzkyMH0.bPBFBkTig3Tcp3rQ5XbHZ35zGnvmqU0owGA_mmJ-MbM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/comment/findComment/67b84eedf09c16d9835b3b91"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAxNzM1MjAsImV4cCI6MTc0MDE4NzkyMH0.bPBFBkTig3Tcp3rQ5XbHZ35zGnvmqU0owGA_mmJ-MbM"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"La inteligencia artificial está revolucionando múltiples sectores.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/comment/updateComment/67b8f0de8f8d51dc09702c93"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3MzM5MTUzNTkwNTBhNWM0MTA0ZjciLCJpYXQiOjE3NDAxNzM1MjAsImV4cCI6MTc0MDE4NzkyMH0.bPBFBkTig3Tcp3rQ5XbHZ35zGnvmqU0owGA_mmJ-MbM"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3002/voiceSocial/v1/comment/deleteComment/67b8f0de8f8d51dc09702c93"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
