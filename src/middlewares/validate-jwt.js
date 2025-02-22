@@ -15,10 +15,8 @@ export const validateJWT = async (req, res, next) =>{
         token = token.replace(/^Bearer\s+/, "");
 
         const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
-        console.log("UID del token extraído:", uid); 
 
         const user = await User.findById(uid)
-        console.log("Usuario encontrado:", user);
 
         if(!user){
             return res.status(400).json({
