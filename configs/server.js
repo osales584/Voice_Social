@@ -12,12 +12,27 @@ import postRoutes from "../src/post/post.routes.js"
 import commentRoutes from "../src/comment/comment.routes.js"
 import { createUserAdmin } from "./admin.js"
 import { initializeCategories } from "../src/category/category-init.js"
+import { swaggerDocs, swaggerUi } from "./swagger.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
     app.use(express.json())
-    app.use(cors())
-    app.use(helmet())
+    app.use(cors({
+        origin: '*', // Permitir todas las solicitudes de origen
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }));
+    app.use(helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'", `http://localhost:${process.env.PORT}`],
+                connectSrc: ["'self'", `http://localhost:${process.env.PORT}`],
+                imgSrc: ["'self'", "data:"],
+                styleSrc: ["'self'", "'unsafe-inline'"],
+            },
+        },
+    }));
     app.use(morgan("dev"))
 }
 
@@ -27,6 +42,7 @@ const routes = (app) =>{
     app.use("/voiceSocial/v1/category", categoryRoutes)
     app.use("/voiceSocial/v1/post", postRoutes)
     app.use("/voiceSocial/v1/comment", commentRoutes)
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
 const conectarDB = async () =>{
